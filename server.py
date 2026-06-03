@@ -9,6 +9,9 @@ def get_emotion_response():
 
     response = emotion_detector(text_to_analyze)
 
+    if response['anger'] is None:
+        return "Invalid text! Please try again!"
+
     output = "For the given statement, the system response is "
     output += "'anger': " + str(response['anger']) + ", "
     output += "'disgust': " + str(response['disgust']) + ", "
